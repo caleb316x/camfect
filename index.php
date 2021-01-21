@@ -90,7 +90,7 @@ function bot()
         }
         else{
             echo botcurl::colortext("Reached limit\n", "red");
-            echo "please wait ($delay sec.)\n";
+            echo "please wait (".($delay/60)." minutes)\n";
             sleep($delay);
             bot();
         }
