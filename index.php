@@ -150,6 +150,7 @@ function quote()
         return $q;
     }
     else{
+        echo "Failed to generete quote!\n";
         sleep(3);
         quote();
     }
