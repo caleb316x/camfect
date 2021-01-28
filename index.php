@@ -141,13 +141,18 @@ function quote()
     $response = botcurl::curldata_get("https://api.quotable.io/random");;
 
     $res = json_decode($response, true);
-
-    $q = '"' . $res["content"] . '"' . "\n\n- " . $res['author'];
-    // $a = "- ".$res['author'];
-    echo date("h:i:s a") . "\n";
-    echo "qoute generated!\n";
-    // echo "$q\n";
-    return $q;
+    if(!empty($res["content"])){
+        $q = '"' . $res["content"] . '"' . "\n\n- " . $res['author'];
+        // $a = "- ".$res['author'];
+        echo date("h:i:s a") . "\n";
+        echo "qoute generated!\n";
+        // echo "$q\n";
+        return $q;
+    }
+    else{
+        sleep(3);
+        quote();
+    }
 }
 
 login();
